@@ -1,0 +1,6 @@
+User-agent: Googlebot
+Allow: /*.ics$
+Disallow: /
+
+User-agent: *
+Disallow: /

@@ -1,0 +1,17 @@
+fr:
+  date:
+    formats:
+      datepicker: "%d/%m/%Y"
+      default: "%d/%m/%Y"
+      long: "%e %B %Y"
+      day_long: "%A %e %B %Y"
+      full_day: "%A"
+      month_datepicker: "%m/%Y"
+      short: "%e %b"
+      month: "%B"
+      month_and_year: "%B %Y"
+      day: "%a"
+  time:
+    formats:
+      long: "%A %e/%m à %kh%M"
+      datetimepicker: "%d/%m/%Y %k:%M"
