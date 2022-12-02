@@ -1,0 +1,17 @@
+<%= simple_form_for([:admin, @user], wrapper: :horizontal_form, html: {class: 'form-horizontal'} ) do |f| %>
+
+  <%= f.input :name, autofocus: true, label: "kayakiste" %>
+
+  <%= f.association :groups, collection: Group.all.order("name ASC"), wrapper: :horizontal_radio_and_checkboxes, as: :check_boxes, label: "Groupe", required: true %>
+
+  <%= f.input :email, label: "Email" %>
+  <%= f.input :phone, label: "Téléphone" %>
+
+  <div class="form-group" style="margin-top: 40px;">
+    <div class="col-sm-offset-3 col-sm-7">
+      <%= f.button :submit, value: submit_value, class: "btn btn-primary" %>
+      <%= link_to "Annuler", admin_users_path, class: "btn btn-sm btn-default col-sm-offset-1" %>
+    </div>
+  </div>
+
+<% end %>

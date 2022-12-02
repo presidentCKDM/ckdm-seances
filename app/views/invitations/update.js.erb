@@ -1,0 +1,3 @@
+$("#<%= dom_id(@invitation.training_session) %> span.is_expected_counter").html("<%= @invitation.training_session.is_expected_counter %>");
+
+$("#<%= dom_id(@invitation.training_session) %> input.invitation-switch-unanswered").bootstrapSwitch('offColor', 'danger').bootstrapSwitch('labelText', '');

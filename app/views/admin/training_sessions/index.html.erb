@@ -1,0 +1,22 @@
+<div class="page-header">
+  <div class="row">
+    <div class="col-xs-6">
+      <h2>Séances</h2>
+    </div>
+
+    <div class="col-xs-6">
+      <h2>
+        <%= link_to new_admin_training_session_path, class: "btn btn-primary pull-right" do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          Ajouter
+        <% end %>
+      </h2>
+    </div>
+  </div>
+
+</div>
+
+<div id="training_sessions" class="row-striped">
+  <%= render @training_sessions %>
+</div>
+

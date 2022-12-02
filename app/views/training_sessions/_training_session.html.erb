@@ -1,0 +1,33 @@
+<li class="list-group-item" id="<%= dom_id(training_session) %>">
+
+  <div class="pull-right">
+    <small>
+      <%= link_to training_session_path(training_session) do %>
+        <button type="button" class="btn btn-link btn-xs">
+          Détails<span class="hidden-xs"></span>
+        </button>
+      <% end %>
+    </small>
+  </div>
+  <div class="pull-right">
+    <% invitation = training_session.invitations.for_user(current_user).first %>
+
+    <%= simple_form_for(invitation, url: invitation_path(invitation), remote: true, html: {method: :patch} ) do |f| %>
+      <%= f.input_field :is_confirmed, class: "invitation-switch #{ "invitation-switch-unanswered" unless f.object.is_answered? }" %>
+    <% end  %>
+  </div>
+
+  <%= training_session %><br />
+  <span class="label label-primary"><%= training_session.location %></span>
+
+
+  <% training_session.allowances.each do |allowance| %>
+    <span class="label label-default"><%= allowance %></span>
+  <% end %>
+
+  <span class="label label-success"><span class="is_expected_counter"><%= training_session.is_expected_counter %></span> <i class="glyphicon glyphicon-user"></i></span>
+
+
+
+
+</li>

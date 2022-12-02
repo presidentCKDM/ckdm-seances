@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 col-xs-12">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= link_to root_path do %>
+        <button type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          retour
+        </button>
+        <% end %>
+      </div>
+      <div class="panel-body">
+
+        <h4>
+          <% if current_user.is_admin? %>
+            <div class="pull-right">
+              <%= link_to "Modifier", edit_admin_training_session_path(@training_session), class: "btn btn-success btn-xs" %>
+              <%= link_to "Supprimer", admin_training_session_path(@training_session), method: :delete, class: "btn btn-danger btn-xs" %>
+            </div>
+          <% end %>
+
+
+          <%= @training_session %>
+        </h4>
+
+        <p>
+          <span class="label label-primary"><%= @training_session.location %></span>
+
+           <% @training_session.allowances.each do |allowance| %>
+            <span class="label label-default"><%= allowance %></span>
+          <% end %>
+
+          <span class="label label-success"><%= @training_session.is_expected_counter %> <i class="glyphicon glyphicon-user"></i></span>
+        </p>
+
+
+        <%= @training_session.description %>
+
+        <h5>Invitations </h5>
+
+        <ul class="list-group">
+          <%= render @invitations %>
+        </ul>
+
+
+        <p>
+          Envoyer un SMS à ceux qui :
+
+          <a class="btn-group" href="sms:<%= @users_who_did_not_answer.join(",") %>">
+            <button type="button" class="btn btn-success btn-xs">
+              <span class="glyphicon glyphicon-phone"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs">n'ont pas répondu</button>
+          </a>
+
+          <a class="btn-group" href="sms:<%= @users_who_confirmed.join(",") %>">
+            <button type="button" class="btn btn-success btn-xs">
+              <span class="glyphicon glyphicon-phone"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs">viennent</button>
+          </a>
+
+
+          <a class="btn-group" href="sms:<%= @all_users.join(",") %>">
+            <button type="button" class="btn btn-success btn-xs">
+              <span class="glyphicon glyphicon-phone"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-xs">sont invités (tout le monde)</button>
+          </a>
+
+        </p>
+
+        <p><a href="https://www.google.fr/#q=m%C3%A9t%C3%A9o+D%C3%A9cines-Charpieu" target="_blank">Voir la météo</a></p>
+
+      </div>
+
+      <div class="panel-footer">
+        <%= link_to root_path do %>
+        <button type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          retour
+        </button>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+

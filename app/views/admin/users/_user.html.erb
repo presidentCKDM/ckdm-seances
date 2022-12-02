@@ -1,0 +1,45 @@
+<div id="<%= dom_id(user) %>" class="row row-user">
+
+	<div class="col-xs-9 col-sm-2 ">
+		<strong><%= user %></strong>
+	</div>
+	<div class="col-xs-5 col-sm-2 hidden-xs">
+		<% user.groups.each do |group| %>
+      <span class="label label-default"><%= group %></span>
+    <% end %>
+	</div>
+
+	<div class="col-xs-3 col-sm-3 col-xs-push-0 col-sm-push-5 col-actions right">
+		<%= link_to edit_admin_user_path(user), class: "btn btn-default btn-xs" do %>
+	  	<span class="glyphicon glyphicon-pencil"></span>
+	    <span class="hidden-xs">modifier</span>
+	  <% end %>
+
+		<%= link_to admin_user_path(user), method: :delete, data: {confirm: "Êtes-vous certain ?"}, class: "btn btn-danger btn-xs" do %>
+	  	<span class="glyphicon glyphicon-remove"></span>
+	  	<span class="hidden-xs">supprimer</span>
+	  <% end %>
+	</div>
+
+
+	<div class="col-xs-12 col-sm-5 col-xs-pull-0 col-sm-pull-3">
+		<% unless user.phone.blank? %>
+			<a href="sms:<%= user.phone_formated %>" class="btn-group"/>
+				<button type="button" class="btn btn-success btn-xs">
+					<span class="glyphicon glyphicon-phone"></span>
+				</button>
+				<button type="button" class="btn btn-default btn-xs"><%= user.phone_formated %></button>
+			</a>
+		<% end %>
+
+		<% unless user.email.blank? %>
+			<a href="mailto:<%= user.email %>" class="btn-group"/>
+				<button type="button" class="btn btn-success btn-xs">
+					<span class="glyphicon glyphicon-send"></span>
+				</button>
+				<button type="button" class="btn btn-default btn-xs"><%= user.email %></button>
+			</a>
+		<% end %>
+	</div>
+
+</div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9">
+
+  <title>Séances CKDM</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div id="wrap">
+    <%= render "shared/navbar" %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div><!-- /.container-fluid -->
+    <div id="push"></div>
+  </div><!-- /#wrap -->
+
+  <%= render "shared/footer" %>
+
+</body>
+</html>

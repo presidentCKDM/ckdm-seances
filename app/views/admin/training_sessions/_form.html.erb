@@ -1,0 +1,18 @@
+<%= simple_form_for([:admin, @training_session], wrapper: :horizontal_form, html: {class: 'form-horizontal'} ) do |f| %>
+
+  <%= f.input :started_at, as: :string, label: "Quand ?", input_html: {class: "datetimepicker"}, input_html: {value: I18n.localize(f.object.started_at, format: :datetimepicker)}  %>
+
+  <%= f.association :location, collection: Location.all.order("name ASC"), label: "Où ?", include_blank: false %>
+
+  <%= f.association :groups, collection: Group.all.order("name ASC"), wrapper: :horizontal_radio_and_checkboxes, as: :check_boxes, label: "Qui ?", required: true %>
+
+  <%= f.input :description, label: "Programme" %>
+
+  <div class="form-group" style="margin-top: 40px;">
+    <div class="col-sm-offset-3 col-sm-7">
+      <%= f.button :submit, value: submit_value, class: "btn btn-primary" %>
+      <%= link_to "Annuler", admin_training_sessions_path, class: "btn btn-sm btn-default col-sm-offset-1" %>
+    </div>
+  </div>
+
+<% end %>

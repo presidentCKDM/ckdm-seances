@@ -1,0 +1,15 @@
+<a class="list-group-item">
+  <% if invitation.is_answered? %>
+    <% if invitation.is_confirmed? %>
+      <span class="pull-right label label-success">O</span>
+    <% else %>
+      <span class="pull-right label label-danger">N</span>
+    <% end %>
+  <% else %>
+    <span class="pull-right label label-default">?</span>
+  <% end %>
+  <small class="pull-right" style="padding-right: 10px;">
+    <%= l invitation.updated_at, format: :long if invitation.is_answered? %>
+  </small>
+  <%= invitation.user %>
+</a>

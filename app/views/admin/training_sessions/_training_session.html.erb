@@ -1,0 +1,31 @@
+<div id="<%= dom_id(training_session) %>" class="row row-training_session">
+
+	<div class="col-xs-9 col-sm-3 ">
+		<strong><%= training_session %></strong>
+	</div>
+
+	<div class="col-xs-3 col-sm-3 col-xs-push-0 col-sm-push-6 col-actions right">
+		<%= link_to admin_training_session_duplicates_path(training_session), method: :post, class: "btn btn-success btn-xs" do %>
+	  	<span class="glyphicon glyphicon-retweet"></span>
+	    <span class="hidden-xs">copier</span>
+	  <% end %>
+
+		<%= link_to edit_admin_training_session_path(training_session), class: "btn btn-default btn-xs" do %>
+	  	<span class="glyphicon glyphicon-pencil"></span>
+	    <span class="hidden-xs">modifier</span>
+	  <% end %>
+
+		<%= link_to admin_training_session_path(training_session), method: :delete, data: {confirm: "Êtes-vous certain ?"}, class: "btn btn-danger btn-xs" do %>
+	  	<span class="glyphicon glyphicon-remove"></span>
+	  	<span class="hidden-xs">supprimer</span>
+	  <% end %>
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-xs-pull-0 col-sm-pull-3">
+		<span class="label label-primary"><%= training_session.location %></span>
+		<% training_session.groups.each do |group| %>
+			<span class="label label-default"><%= group %></span>
+		<% end %>
+	</div>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="flash-messages">
+  <% flash.each do |key, value| %>
+    <% key = key == "notice" ? :info : key %>
+    <% key = key == "alert" ? :warning : key %>
+    <div class="alert alert-<%= key %>" role: "alert">
+      <%= value %>
+    </div>
+  <% end %>
+</div>

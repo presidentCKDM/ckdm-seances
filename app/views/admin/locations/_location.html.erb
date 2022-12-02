@@ -1,0 +1,14 @@
+<div id="<%= dom_id(location) %>" class="row row-location">
+
+	<div class="col-xs-9">
+		<strong><%= location %></strong>
+	</div>
+
+	<div class="col-xs-3 col-actions right">
+		<%= link_to edit_admin_location_path(location), class: "btn btn-default btn-xs" do %>
+	  	<span class="glyphicon glyphicon-pencil"></span>
+	    <span class="hidden-xs">modifier</span>
+	  <% end %>
+	</div>
+
+</div>

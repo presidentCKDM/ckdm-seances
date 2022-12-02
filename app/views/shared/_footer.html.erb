@@ -1,0 +1,22 @@
+<footer class="footer">
+  <div class="container-fluid">
+    <p class="muted credit">
+      <span class="pull-right-sm pull-right-md pull-right-lg">
+        <span class="hidden-xs">
+          Application développée par
+          <a href="https://github.com/etiennedepaulis/" target="_blank">Etienne Depaulis &raquo;</a>
+        </span>
+      </span>
+      <% if user_signed_in? %>
+        <span class="glyphicon glyphicon-lock"></span>
+        <span class="hidden-xs">Connecté en tant que </span>
+        <strong><%= current_user %></strong>
+         —
+        <%= link_to session_path(session[:user_id]), method: :delete do %>
+          <span class="glyphicon glyphicon-refresh"></span>
+          Changer
+        <% end %>
+      <% end %>
+    </p>
+  </div>
+</footer>

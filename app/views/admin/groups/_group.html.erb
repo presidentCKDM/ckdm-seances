@@ -1,0 +1,32 @@
+<div id="<%= dom_id(group) %>" class="row row-group">
+
+	<div class="col-xs-9 col-sm-5">
+		<strong><%= group %></strong>
+	</div>
+
+	<div class="col-xs-3 col-sm-2 col-sm-push-5 col-actions right">
+		<%= link_to edit_admin_group_path(group), class: "btn btn-default btn-xs" do %>
+	  	<span class="glyphicon glyphicon-pencil"></span>
+	    <span class="hidden-xs">modifier</span>
+	  <% end %>
+	</div>
+
+	<div class="col-xs-12 col-sm-5 col-sm-pull-3">
+
+		<a href="sms:<%= group.users.pluck(:phone).join(",") %>" class="btn-group"/>
+			<button type="button" class="btn btn-success btn-xs">
+				<span class="glyphicon glyphicon-phone"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-xs">sms</button>
+		</a>
+
+		<a href="mailto:<%= group.users.pluck(:email).join(",") %>" class="btn-group"/>
+			<button type="button" class="btn btn-success btn-xs">
+				<span class="glyphicon glyphicon-send"></span>
+			</button>
+			<button type="button" class="btn btn-default btn-xs">email</button>
+		</a>
+
+	</div>
+
+</div>
