@@ -130,7 +130,7 @@ GEM
       rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails (5.0.7)
+    rails (8.0.1)
       actioncable (= 5.0.7)
       actionmailer (= 5.0.7)
       actionpack (= 5.0.7)
