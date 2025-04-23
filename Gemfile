@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.4.3'
 
-gem 'rails', '~> 7.1.0', '>= 7.1.0.1'
+gem 'rails', '~> 8.0.1', '>= 8.0.1.1'
 gem 'pg'
 
 gem 'uglifier'
